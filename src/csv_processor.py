@@ -82,6 +82,13 @@ class CsvProcessor:
         # #     print(k, v)
         # return item_dict
 
+    def total_calculator(self, item_dictionary):
+        print("Calculating total amount...")
+        if item_dictionary is not None:
+            for k, v in item_dictionary.items():
+                print(type(v))
+                print(v)
+
 
 
 
@@ -103,5 +110,7 @@ invoice_id = reader.invoice_processor(reader.invoice_generator(), customer_id)
 print(invoice_id)
 
 
-items = reader.item_processor(reader.item_generator(), ['”IN0500000”'])
+items = reader.item_processor(reader.item_generator(), ['“IN0999987”','“IN0999999”'])
+
+total = reader.total_calculator(items)
 
