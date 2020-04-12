@@ -86,7 +86,6 @@ class CsvProcessor:
 
     def total_calculator(self, item_dictionary):
         print("Calculating total amount...")
-        total = []
         amounts = []
         clean_amount = []
         if item_dictionary is not None:
@@ -103,14 +102,9 @@ class CsvProcessor:
         for i in range(0, len(clean_amount)):
             # Expecting float decimal points issue
             clean_amount[i] = float(clean_amount[i])
-
-        total.append(sum(clean_amount))
+        total = sum(clean_amount)
         print("total: {}".format(total))
         return total
-
-
-
-
 
 
 reader = CsvProcessor()
@@ -118,7 +112,7 @@ reader = CsvProcessor()
 # customer_id = reader.customer_processor(reader.customer_generator(),
 #                                         ['”Olivia”','”Johnson”'])
 customer_id = reader.customer_processor(reader.customer_generator(),
-                                        ['”Indiana”','”Jones”'])
+                                        ['”Indiana”', '”Jones”'])
 # customer_id = reader.customer_processor(reader.customer_generator(),
 #                                         ['”Harper”','”Moore”'])
 print(customer_id)
@@ -126,9 +120,9 @@ print(customer_id)
 invoice_id = reader.invoice_processor(reader.invoice_generator(), customer_id)
 print(invoice_id)
 
-# items = reader.item_processor(reader.item_generator(), ['“IN0999987”','“IN0999999”'])
+items = reader.item_processor(reader.item_generator(),
+                              ['“IN0999987”', '“IN0999999”'])
 
-items = reader.item_processor(reader.item_generator(), invoice_id)
+# items = reader.item_processor(reader.item_generator(), invoice_id)
 
 total = reader.total_calculator(items)
-
