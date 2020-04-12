@@ -108,13 +108,8 @@ class CsvProcessor:
 
 
 reader = CsvProcessor()
-
-# customer_id = reader.customer_processor(reader.customer_generator(),
-#                                         ['”Olivia”','”Johnson”'])
 customer_id = reader.customer_processor(reader.customer_generator(),
                                         ['”Indiana”', '”Jones”'])
-# customer_id = reader.customer_processor(reader.customer_generator(),
-#                                         ['”Harper”','”Moore”'])
 print(customer_id)
 
 invoice_id = reader.invoice_processor(reader.invoice_generator(), customer_id)
